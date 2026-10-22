@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    width: 340px; margin: 0; padding: 14px;
+    font: 13px/1.5 -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+    background: #1b1b1f; color: #e6e6e6;
+  }
+  header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  .title { font-size: 14px; font-weight: 600; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #666; display: inline-block; margin-right: 6px; }
+  .dot.on { background: #2ea043; box-shadow: 0 0 6px #2ea04388; }
+  .dot.warn { background: #d29922; }
+  .row { display: flex; align-items: center; gap: 8px; }
+  .muted { color: #9a9aa2; font-size: 12px; }
+  .card { background: #242429; border: 1px solid #303038; border-radius: 8px; padding: 10px; margin-bottom: 10px; }
+  .url { font-size: 11px; color: #8b8b93; word-break: break-all; margin-top: 2px; max-height: 30px; overflow: hidden; }
+  button {
+    font: inherit; cursor: pointer; border-radius: 6px; border: 1px solid #3a3a44;
+    background: #2c2c33; color: #e6e6e6; padding: 6px 10px;
+  }
+  button:hover { background: #34343d; }
+  button.primary { background: #2ea043; border-color: #2ea043; color: #fff; width: 100%; padding: 8px; font-weight: 600; }
+  button.primary:hover { background: #35b04c; }
+  button.danger { border-color: #5b2b2b; color: #ff9b9b; }
+  button.ghost { background: transparent; border-color: #33333c; }
+  ul { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-direction: column; gap: 6px; }
+  li { background: #1f1f24; border: 1px solid #2d2d35; border-radius: 6px; padding: 7px 8px; display: flex; align-items: flex-start; gap: 8px; }
+  li .info { flex: 1; min-width: 0; }
+  li .name { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  li .u { font-size: 10px; color: #7d7d85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  li button { padding: 2px 7px; font-size: 11px; }
+  .empty { color: #6f6f78; font-size: 12px; padding: 6px 0; }
+  footer { margin-top: 10px; font-size: 11px; color: #6f6f78; line-height: 1.45; }
+  hr { border: 0; border-top: 1px solid #2c2c33; margin: 10px 0; }
+</style>
+</head>
+<body>
+  <header>
+    <span class="title">DSH 浏览器桥</span>
+    <span class="row"><span id="dot" class="dot"></span><span id="linkText" class="muted">检测中…</span></span>
+  </header>
+
+  <div class="card">
+    <div class="muted">当前标签页</div>
+    <div id="curName" class="name">—</div>
+    <div id="curUrl" class="url">—</div>
+    <div style="margin-top:8px">
+      <button id="toggleBtn" class="primary">共享当前标签页</button>
+    </div>
+  </div>
+
+  <div class="row" style="justify-content:space-between">
+    <span class="muted">已共享 <b id="count">0</b> 个</span>
+    <button id="clearBtn" class="ghost" style="padding:2px 8px;font-size:11px">全部取消</button>
+  </div>
+  <ul id="list"></ul>
+  <div id="empty" class="empty">还没有共享任何标签页</div>
+
+  <footer>
+    只有被共享的标签页才允许 DSH 读写；关闭本页或取消共享即断开。<br>
+    需要本地桥接服务在 <code>127.0.0.1</code> 上运行。
+  </footer>
+  <script src="popup.js"></script>
+</body>
+</html>

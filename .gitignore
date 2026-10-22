@@ -1,0 +1,18 @@
+# runtime state (tab id, etc.)
+.state.json
+
+# screenshots produced by `cli.mjs shot`
+shots/
+
+# machine-specific node path override
+bridge.config.cmd
+
+# logs
+*.log
+
+# deps (not used, but just in case)
+node_modules/
+
+# OS junk
+Thumbs.db
+.DS_Store

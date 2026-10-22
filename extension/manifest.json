@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "DSH Browser Bridge",
+  "version": "1.0.0",
+  "description": "把指定标签页共享给本地 DSH 代理操作（仅限显式共享的标签页）",
+  "minimum_chrome_version": "116",
+  "permissions": ["scripting", "offscreen", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "sw.js" },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "DSH 浏览器桥"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "browser-bridge",
+  "version": "1.0.0",
+  "description": "Drive your real Edge/Chrome from an AI agent through a browser extension bridge — no --remote-debugging-port, no separate profile, no lost logins.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node server.mjs",
+    "status": "node cli.mjs status"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["browser-automation", "browser-extension", "edge", "chrome", "ai-agent", "mv3"],
+  "license": "MIT"
+}
